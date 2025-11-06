@@ -28,7 +28,7 @@ const serviceOptions = [
   "Counseling",
   "Financial Support",
   "Child Care",
-  "Educational Support"
+  "Educational Support",
 ];
 
 const clienteleOptions = [
@@ -39,7 +39,7 @@ const clienteleOptions = [
   "LGBTQ+",
   "Survivors of Domestic Violence",
   "Survivors of Sexual Assault",
-  "Human Trafficking Survivors"
+  "Human Trafficking Survivors",
 ];
 
 export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
@@ -52,26 +52,31 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
     clientele: [],
     capacity: "",
     hoursOfOperation: "",
-    verificationDocument: null
+    verificationDocument: null,
   });
 
-  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
+    {}
+  );
   const [fileName, setFileName] = useState<string>("");
   const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
   const [clienteleDropdownOpen, setClienteleDropdownOpen] = useState(false);
 
-  const handleCheckboxChange = (field: "serviceType" | "clientele", value: string) => {
-    setFormData(prev => ({
+  const handleCheckboxChange = (
+    field: "serviceType" | "clientele",
+    value: string
+  ) => {
+    setFormData((prev) => ({
       ...prev,
       [field]: prev[field].includes(value)
-        ? prev[field].filter(item => item !== value)
-        : [...prev[field], value]
+        ? prev[field].filter((item) => item !== value)
+        : [...prev[field], value],
     }));
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
-    setFormData(prev => ({ ...prev, verificationDocument: file }));
+    setFormData((prev) => ({ ...prev, verificationDocument: file }));
     setFileName(file?.name || "");
   };
 
@@ -115,19 +120,23 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
   };
 
   return (
-    <div className="bg-white relative size-full min-h-screen flex items-center justify-center py-[50px]">
+    <div className="bg-white relative size-full min-h-screen py-[80px]">
       {/* Background decorative element */}
-      <div className="absolute box-border content-stretch flex flex-col gap-[10px] h-[300px] items-start justify-end right-[50px] top-[50px] rounded-[25px] w-[400px] opacity-20">
-        <img alt="" className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none rounded-[25px] size-full" src={imgFrame12} />
-      </div>
+      <div className="absolute box-border content-stretch flex flex-col gap-[10px] h-[300px] items-start justify-end right-[50px] top-[50px] rounded-[25px] w-[400px] opacity-20"></div>
 
-      <form onSubmit={handleSubmit} className="relative z-10 w-full max-w-[800px] px-[50px]">
+      <form
+        onSubmit={handleSubmit}
+        className="relative z-10 w-full max-w-[800px] px-[50px] mx-auto"
+      >
         <div className="content-stretch flex flex-col gap-[33px] items-start w-full">
           {/* Header */}
           <div className="content-stretch flex flex-col gap-[18px] items-center not-italic relative shrink-0 w-full text-center">
-            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[30px] text-black">Profile Setup</p>
+            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[30px] text-black">
+              Profile Setup
+            </p>
             <p className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] relative shrink-0 text-[#b0b0b0] text-[14px]">
-              Please complete your profile to help us connect GBV survivors with the right services
+              Please complete your profile to help us connect GBV survivors with
+              the right services
             </p>
           </div>
 
@@ -139,16 +148,32 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                 Organization Name <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
-                <div aria-hidden="true" className={`absolute border ${errors.organizationName ? 'border-red-500' : 'border-[#dadada]'} border-solid inset-0 pointer-events-none rounded-[10px]`} />
+                <div
+                  aria-hidden="true"
+                  className={`absolute border ${
+                    errors.organizationName
+                      ? "border-red-500"
+                      : "border-[#dadada]"
+                  } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                />
                 <input
                   type="text"
                   value={formData.organizationName}
-                  onChange={(e) => setFormData({ ...formData, organizationName: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      organizationName: e.target.value,
+                    })
+                  }
                   placeholder="Enter organization name"
                   className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
-              {errors.organizationName && <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">{errors.organizationName}</p>}
+              {errors.organizationName && (
+                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                  {errors.organizationName}
+                </p>
+              )}
             </div>
 
             {/* Contact Person */}
@@ -157,16 +182,27 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                 Contact Person <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
-                <div aria-hidden="true" className={`absolute border ${errors.contactPerson ? 'border-red-500' : 'border-[#dadada]'} border-solid inset-0 pointer-events-none rounded-[10px]`} />
+                <div
+                  aria-hidden="true"
+                  className={`absolute border ${
+                    errors.contactPerson ? "border-red-500" : "border-[#dadada]"
+                  } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                />
                 <input
                   type="text"
                   value={formData.contactPerson}
-                  onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, contactPerson: e.target.value })
+                  }
                   placeholder="Enter contact person name"
                   className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
-              {errors.contactPerson && <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">{errors.contactPerson}</p>}
+              {errors.contactPerson && (
+                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                  {errors.contactPerson}
+                </p>
+              )}
             </div>
 
             {/* County */}
@@ -175,16 +211,27 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                 County <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
-                <div aria-hidden="true" className={`absolute border ${errors.county ? 'border-red-500' : 'border-[#dadada]'} border-solid inset-0 pointer-events-none rounded-[10px]`} />
+                <div
+                  aria-hidden="true"
+                  className={`absolute border ${
+                    errors.county ? "border-red-500" : "border-[#dadada]"
+                  } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                />
                 <input
                   type="text"
                   value={formData.county}
-                  onChange={(e) => setFormData({ ...formData, county: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, county: e.target.value })
+                  }
                   placeholder="Enter county"
                   className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
-              {errors.county && <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">{errors.county}</p>}
+              {errors.county && (
+                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                  {errors.county}
+                </p>
+              )}
             </div>
 
             {/* Town */}
@@ -193,16 +240,27 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                 Town <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
-                <div aria-hidden="true" className={`absolute border ${errors.town ? 'border-red-500' : 'border-[#dadada]'} border-solid inset-0 pointer-events-none rounded-[10px]`} />
+                <div
+                  aria-hidden="true"
+                  className={`absolute border ${
+                    errors.town ? "border-red-500" : "border-[#dadada]"
+                  } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                />
                 <input
                   type="text"
                   value={formData.town}
-                  onChange={(e) => setFormData({ ...formData, town: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, town: e.target.value })
+                  }
                   placeholder="Enter town"
                   className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
-              {errors.town && <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">{errors.town}</p>}
+              {errors.town && (
+                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                  {errors.town}
+                </p>
+              )}
             </div>
 
             {/* Capacity */}
@@ -211,16 +269,27 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                 Capacity <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
-                <div aria-hidden="true" className={`absolute border ${errors.capacity ? 'border-red-500' : 'border-[#dadada]'} border-solid inset-0 pointer-events-none rounded-[10px]`} />
+                <div
+                  aria-hidden="true"
+                  className={`absolute border ${
+                    errors.capacity ? "border-red-500" : "border-[#dadada]"
+                  } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                />
                 <input
                   type="text"
                   value={formData.capacity}
-                  onChange={(e) => setFormData({ ...formData, capacity: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, capacity: e.target.value })
+                  }
                   placeholder="e.g., 20 clients per month"
                   className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
-              {errors.capacity && <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">{errors.capacity}</p>}
+              {errors.capacity && (
+                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                  {errors.capacity}
+                </p>
+              )}
             </div>
 
             {/* Hours of Operation */}
@@ -229,16 +298,32 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                 Hours of Operation <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
-                <div aria-hidden="true" className={`absolute border ${errors.hoursOfOperation ? 'border-red-500' : 'border-[#dadada]'} border-solid inset-0 pointer-events-none rounded-[10px]`} />
+                <div
+                  aria-hidden="true"
+                  className={`absolute border ${
+                    errors.hoursOfOperation
+                      ? "border-red-500"
+                      : "border-[#dadada]"
+                  } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                />
                 <input
                   type="text"
                   value={formData.hoursOfOperation}
-                  onChange={(e) => setFormData({ ...formData, hoursOfOperation: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      hoursOfOperation: e.target.value,
+                    })
+                  }
                   placeholder="e.g., Mon-Fri 9AM-5PM"
                   className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
-              {errors.hoursOfOperation && <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">{errors.hoursOfOperation}</p>}
+              {errors.hoursOfOperation && (
+                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                  {errors.hoursOfOperation}
+                </p>
+              )}
             </div>
           </div>
 
@@ -247,10 +332,18 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
             <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
               Type of Services Offered <span className="text-red-500">*</span>
             </label>
-            <Popover open={serviceDropdownOpen} onOpenChange={setServiceDropdownOpen}>
+            <Popover
+              open={serviceDropdownOpen}
+              onOpenChange={setServiceDropdownOpen}
+            >
               <PopoverTrigger asChild>
                 <div className="min-h-[42px] relative rounded-[10px] shrink-0 w-full cursor-pointer">
-                  <div aria-hidden="true" className={`absolute border ${errors.serviceType ? 'border-red-500' : 'border-[#dadada]'} border-solid inset-0 pointer-events-none rounded-[10px]`} />
+                  <div
+                    aria-hidden="true"
+                    className={`absolute border ${
+                      errors.serviceType ? "border-red-500" : "border-[#dadada]"
+                    } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                  />
                   <div className="box-border min-h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent rounded-[10px] flex items-center justify-between gap-[10px]">
                     <div className="flex flex-wrap gap-[6px] flex-1">
                       {formData.serviceType.length === 0 ? (
@@ -279,21 +372,32 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                 <div className="max-h-[300px] overflow-y-auto p-[16px]">
                   <div className="grid grid-cols-1 gap-[12px]">
                     {serviceOptions.map((service) => (
-                      <label key={service} className="flex items-center gap-[8px] cursor-pointer">
+                      <label
+                        key={service}
+                        className="flex items-center gap-[8px] cursor-pointer"
+                      >
                         <input
                           type="checkbox"
                           checked={formData.serviceType.includes(service)}
-                          onChange={() => handleCheckboxChange("serviceType", service)}
+                          onChange={() =>
+                            handleCheckboxChange("serviceType", service)
+                          }
                           className="w-[18px] h-[18px] accent-[#9dc183] cursor-pointer"
                         />
-                        <span className="font-['Inter:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px]">{service}</span>
+                        <span className="font-['Inter:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px]">
+                          {service}
+                        </span>
                       </label>
                     ))}
                   </div>
                 </div>
               </PopoverContent>
             </Popover>
-            {errors.serviceType && <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">{errors.serviceType}</p>}
+            {errors.serviceType && (
+              <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                {errors.serviceType}
+              </p>
+            )}
           </div>
 
           {/* Clientele Served - Dropdown */}
@@ -301,10 +405,18 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
             <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
               Clientele Served <span className="text-red-500">*</span>
             </label>
-            <Popover open={clienteleDropdownOpen} onOpenChange={setClienteleDropdownOpen}>
+            <Popover
+              open={clienteleDropdownOpen}
+              onOpenChange={setClienteleDropdownOpen}
+            >
               <PopoverTrigger asChild>
                 <div className="min-h-[42px] relative rounded-[10px] shrink-0 w-full cursor-pointer">
-                  <div aria-hidden="true" className={`absolute border ${errors.clientele ? 'border-red-500' : 'border-[#dadada]'} border-solid inset-0 pointer-events-none rounded-[10px]`} />
+                  <div
+                    aria-hidden="true"
+                    className={`absolute border ${
+                      errors.clientele ? "border-red-500" : "border-[#dadada]"
+                    } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                  />
                   <div className="box-border min-h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent rounded-[10px] flex items-center justify-between gap-[10px]">
                     <div className="flex flex-wrap gap-[6px] flex-1">
                       {formData.clientele.length === 0 ? (
@@ -333,21 +445,32 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                 <div className="max-h-[300px] overflow-y-auto p-[16px]">
                   <div className="grid grid-cols-1 gap-[12px]">
                     {clienteleOptions.map((clientele) => (
-                      <label key={clientele} className="flex items-center gap-[8px] cursor-pointer">
+                      <label
+                        key={clientele}
+                        className="flex items-center gap-[8px] cursor-pointer"
+                      >
                         <input
                           type="checkbox"
                           checked={formData.clientele.includes(clientele)}
-                          onChange={() => handleCheckboxChange("clientele", clientele)}
+                          onChange={() =>
+                            handleCheckboxChange("clientele", clientele)
+                          }
                           className="w-[18px] h-[18px] accent-[#9dc183] cursor-pointer"
                         />
-                        <span className="font-['Inter:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px]">{clientele}</span>
+                        <span className="font-['Inter:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px]">
+                          {clientele}
+                        </span>
                       </label>
                     ))}
                   </div>
                 </div>
               </PopoverContent>
             </Popover>
-            {errors.clientele && <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">{errors.clientele}</p>}
+            {errors.clientele && (
+              <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                {errors.clientele}
+              </p>
+            )}
           </div>
 
           {/* Verification Documents */}
@@ -356,7 +479,10 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
               Verification Documents (Optional)
             </label>
             <div className="relative rounded-[10px] w-full">
-              <div aria-hidden="true" className="absolute border border-[#dadada] border-dashed inset-0 pointer-events-none rounded-[10px]" />
+              <div
+                aria-hidden="true"
+                className="absolute border border-[#dadada] border-dashed inset-0 pointer-events-none rounded-[10px]"
+              />
               <label className="box-border flex flex-col gap-[8px] items-center justify-center px-[20px] py-[20px] w-full cursor-pointer">
                 <input
                   type="file"
@@ -376,8 +502,13 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
           </div>
 
           {/* Submit Button */}
-          <button type="submit" className="bg-[#9dc183] box-border content-stretch flex gap-[10px] h-[48px] items-center justify-center px-[120px] py-[6px] relative rounded-[25px] shrink-0 w-full border-none cursor-pointer">
-            <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[30px] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white whitespace-pre">Complete Profile</p>
+          <button
+            type="submit"
+            className="bg-[#9dc183] box-border content-stretch flex gap-[10px] h-[48px] items-center justify-center px-[120px] py-[6px] relative rounded-[25px] shrink-0 w-full border-none cursor-pointer"
+          >
+            <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[30px] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white whitespace-pre">
+              Complete Profile
+            </p>
           </button>
         </div>
       </form>
