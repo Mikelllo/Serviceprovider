@@ -120,21 +120,21 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
   };
 
   return (
-    <div className="bg-white relative size-full min-h-screen py-[80px]">
+    <div className="bg-white relative size-full min-h-screen flex justify-center py-[80px]">
       {/* Background decorative element */}
-      <div className="absolute box-border content-stretch flex flex-col gap-[10px] h-[300px] items-start justify-end right-[50px] top-[50px] rounded-[25px] w-[400px] opacity-20"></div>
+      <div className="absolute box-border content-stretch flex flex-col gap-[10px] h-[300px] items-center justify-center right-[50px] top-[50px] rounded-[25px] w-[400px] opacity-20"></div>
 
       <form
         onSubmit={handleSubmit}
         className="relative z-10 w-full max-w-[800px] px-[50px] mx-auto"
       >
-        <div className="content-stretch flex flex-col gap-[33px] items-start w-full">
+        <div className="content-stretch flex flex-col gap-[33px] flex items-center justify-center w-full">
           {/* Header */}
           <div className="content-stretch flex flex-col gap-[18px] items-center not-italic relative shrink-0 w-full text-center">
-            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[30px] text-black">
+            <p className="font-['Poppins:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[30px] text-black">
               Profile Setup
             </p>
-            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] relative shrink-0 text-[#b0b0b0] text-[14px]">
+            <p className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] relative shrink-0 text-[#b0b0b0] text-[14px]">
               Please complete your profile to help us connect GBV survivors with
               the right services
             </p>
@@ -144,7 +144,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px] w-full">
             {/* Organization Name */}
             <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-              <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+              <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
                 Organization Name <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
@@ -166,11 +166,11 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                     })
                   }
                   placeholder="Enter organization name"
-                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
+                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
               {errors.organizationName && (
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                <p className="font-['Poppins:Regular',sans-serif] font-normal text-[12px] text-red-500">
                   {errors.organizationName}
                 </p>
               )}
@@ -178,7 +178,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
 
             {/* Contact Person */}
             <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-              <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+              <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
                 Contact Person <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
@@ -195,11 +195,11 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                     setFormData({ ...formData, contactPerson: e.target.value })
                   }
                   placeholder="Enter contact person name"
-                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
+                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
               {errors.contactPerson && (
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                <p className="font-['Poppins:Regular',sans-serif] font-normal text-[12px] text-red-500">
                   {errors.contactPerson}
                 </p>
               )}
@@ -207,7 +207,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
 
             {/* County */}
             <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-              <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+              <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
                 County <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
@@ -224,11 +224,11 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                     setFormData({ ...formData, county: e.target.value })
                   }
                   placeholder="Enter county"
-                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
+                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
               {errors.county && (
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                <p className="font-['Poppins:Regular',sans-serif] font-normal text-[12px] text-red-500">
                   {errors.county}
                 </p>
               )}
@@ -236,7 +236,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
 
             {/* Town */}
             <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-              <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+              <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
                 Town <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
@@ -253,11 +253,11 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                     setFormData({ ...formData, town: e.target.value })
                   }
                   placeholder="Enter town"
-                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
+                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
               {errors.town && (
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                <p className="font-['Poppins:Regular',sans-serif] font-normal text-[12px] text-red-500">
                   {errors.town}
                 </p>
               )}
@@ -265,7 +265,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
 
             {/* Capacity */}
             <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-              <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+              <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
                 Capacity <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
@@ -282,11 +282,11 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                     setFormData({ ...formData, capacity: e.target.value })
                   }
                   placeholder="e.g., 20 clients per month"
-                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
+                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
               {errors.capacity && (
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                <p className="font-['Poppins:Regular',sans-serif] font-normal text-[12px] text-red-500">
                   {errors.capacity}
                 </p>
               )}
@@ -294,7 +294,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
 
             {/* Hours of Operation */}
             <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-              <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+              <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
                 Hours of Operation <span className="text-red-500">*</span>
               </label>
               <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
@@ -316,11 +316,11 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                     })
                   }
                   placeholder="e.g., Mon-Fri 9AM-5PM"
-                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
+                  className="box-border h-[42px] px-[20px] py-[8px] w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0] rounded-[10px]"
                 />
               </div>
               {errors.hoursOfOperation && (
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+                <p className="font-['Poppins:Regular',sans-serif] font-normal text-[12px] text-red-500">
                   {errors.hoursOfOperation}
                 </p>
               )}
@@ -329,7 +329,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
 
           {/* Service Type - Dropdown */}
           <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-            <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+            <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
               Type of Services Offered <span className="text-red-500">*</span>
             </label>
             <Popover
@@ -344,7 +344,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                       errors.serviceType ? "border-red-500" : "border-[#dadada]"
                     } border-solid inset-0 pointer-events-none rounded-[10px]`}
                   />
-                  <div className="box-border min-h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent rounded-[10px] flex items-center justify-between gap-[10px]">
+                  <div className="box-border min-h-[42px] px-[20px] py-[8px] w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent rounded-[10px] flex items-center justify-between gap-[10px]">
                     <div className="flex flex-wrap gap-[6px] flex-1">
                       {formData.serviceType.length === 0 ? (
                         <span className="text-[#b0b0b0]">Select services</span>
@@ -384,7 +384,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                           }
                           className="w-[18px] h-[18px] accent-[#9dc183] cursor-pointer"
                         />
-                        <span className="font-['Inter:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px]">
+                        <span className="font-['Poppins:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px]">
                           {service}
                         </span>
                       </label>
@@ -394,7 +394,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
               </PopoverContent>
             </Popover>
             {errors.serviceType && (
-              <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+              <p className="font-['Poppins:Regular',sans-serif] font-normal text-[12px] text-red-500">
                 {errors.serviceType}
               </p>
             )}
@@ -402,7 +402,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
 
           {/* Clientele Served - Dropdown */}
           <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-            <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+            <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
               Clientele Served <span className="text-red-500">*</span>
             </label>
             <Popover
@@ -417,7 +417,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                       errors.clientele ? "border-red-500" : "border-[#dadada]"
                     } border-solid inset-0 pointer-events-none rounded-[10px]`}
                   />
-                  <div className="box-border min-h-[42px] px-[20px] py-[8px] w-full font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent rounded-[10px] flex items-center justify-between gap-[10px]">
+                  <div className="box-border min-h-[42px] px-[20px] py-[8px] w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent rounded-[10px] flex items-center justify-between gap-[10px]">
                     <div className="flex flex-wrap gap-[6px] flex-1">
                       {formData.clientele.length === 0 ? (
                         <span className="text-[#b0b0b0]">Select clientele</span>
@@ -457,7 +457,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                           }
                           className="w-[18px] h-[18px] accent-[#9dc183] cursor-pointer"
                         />
-                        <span className="font-['Inter:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px]">
+                        <span className="font-['Poppins:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px]">
                           {clientele}
                         </span>
                       </label>
@@ -467,7 +467,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
               </PopoverContent>
             </Popover>
             {errors.clientele && (
-              <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-red-500">
+              <p className="font-['Poppins:Regular',sans-serif] font-normal text-[12px] text-red-500">
                 {errors.clientele}
               </p>
             )}
@@ -475,7 +475,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
 
           {/* Verification Documents */}
           <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
-            <label className="font-['Inter:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
+            <label className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px]">
               Verification Documents (Optional)
             </label>
             <div className="relative rounded-[10px] w-full">
@@ -491,10 +491,10 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
                   className="hidden"
                 />
                 <Upload className="w-[24px] h-[24px] text-[#9dc183]" />
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px] text-center">
+                <p className="font-['Poppins:Regular',sans-serif] font-normal text-[#1e1e1e] text-[14px] text-center">
                   {fileName || "Click to upload or drag and drop"}
                 </p>
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[#b0b0b0] text-[12px] text-center">
+                <p className="font-['Poppins:Regular',sans-serif] font-normal text-[#b0b0b0] text-[12px] text-center">
                   PDF, DOC, DOCX, JPG, PNG (Max 5MB)
                 </p>
               </label>
@@ -506,7 +506,7 @@ export default function ProfileSetup({ onComplete }: ProfileSetupProps) {
             type="submit"
             className="bg-[#9dc183] box-border content-stretch flex gap-[10px] h-[48px] items-center justify-center px-[120px] py-[6px] relative rounded-[25px] shrink-0 w-full border-none cursor-pointer"
           >
-            <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[30px] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white whitespace-pre">
+            <p className="font-['Poppins:Semi_Bold',sans-serif] font-semibold leading-[30px] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white whitespace-pre">
               Complete Profile
             </p>
           </button>
