@@ -19,7 +19,9 @@ export default function App() {
   return (
     <div className="w-full h-screen overflow-auto">
       {currentPage === "login" && <LoginPage onLogin={handleLogin} />}
-      {currentPage === "profile" && <ProfileSetup onComplete={handleProfileComplete} />}
+      {currentPage === "profile" && (
+        <ProfileSetup onComplete={handleProfileComplete} />
+      )}
       {currentPage === "dashboard" && <DashboardPage />}
     </div>
   );

@@ -23,14 +23,14 @@ function Frame5() {
 
 function Frame6() {
   return (
-    <div className="box-border content-stretch flex flex-col gap-[10px] h-[265px] items-center justify-center px-[31px] py-[37px] relative rounded-[25px] shrink-0 w-[508px]">
+    <div className="box-border content-stretch flex flex-col gap-8px h-[265px] items-center justify-center px-[31px] py-[37px] relative rounded-[25px] shrink-0 w-[490px]">
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none rounded-[25px]"
       >
         <img
           alt=""
-          className="absolute max-w-none object-50%-50% object-cover rounded-[25px] size-full"
+          className="absolute max-w-none object-50%-50% object-cover rounded-[25px] size-full pr-20px brightness-60"
           src={imgFrame12}
         />
         <div className="absolute bg-[rgba(0,0,0,0.21)] inset-0 rounded-[25px]" />
@@ -42,10 +42,10 @@ function Frame6() {
 
 function Frame7() {
   return (
-    <div className="absolute box-border content-stretch flex flex-col gap-[10px] h-[711px] items-start justify-end left-[calc(50%+10px)] px-[33px] py-[27px] rounded-[25px] top-[73px] w-[575px]">
+    <div className="absolute box-border content-stretch flex flex-col gap-8px h-[711px] items-start justify-end left-[calc(48%+1px)] px-[33px] py-[27px] rounded-[25px] top-[50px] w-[550px]">
       <img
         alt=""
-        className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none rounded-[25px] size-full"
+        className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none rounded-[25px] size-full brightness-70"
         src={imgFrame12}
       />
       <Frame6 />
@@ -55,11 +55,11 @@ function Frame7() {
 
 function Frame8() {
   return (
-    <div className="content-stretch flex gap-[13px] items-center justify-center relative shrink-0">
-      <div className="relative rounded-[10px] shrink-0 size-[30px]">
+    <div className="content-stretch flex gap-[13px] items-center justify-center relative shrink-0 pl-[150px]">
+      <div className="relative rounded-[10px] shrink-0 size-[30px] ">
         <img
           alt=""
-          className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none rounded-[10px] size-full"
+          className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none rounded-[10px] size-full pr-20px"
           src={imgRectangle7}
         />
       </div>
@@ -69,8 +69,8 @@ function Frame8() {
 
 function Frame4() {
   return (
-    <div className="content-stretch flex flex-col gap-[18px] items-start not-italic relative shrink-0 w-full">
-      <p className="font-['Poppins:Bold',sans-serif] font-bold leading-[normal] min-w-full relative shrink-0 text-[25px] text-black w-[min-content]">
+    <div className="content-stretch flex flex-col gap-[18px] items-start not-italic relative shrink-0 w-full pl-[150px]">
+      <p className="font-['Poppins:Bold',sans-serif] font-bold leading-[normal] min-w-full relative shrink-0 text-[25px] text-black w-min">
         Welcome Back
       </p>
       <p className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] relative shrink-0 text-[#b0b0b0] text-[14px] w-[419px]">
@@ -89,7 +89,7 @@ function Eye({
 }) {
   return (
     <div
-      className="relative shrink-0 size-[20px] cursor-pointer"
+      className="relative shrink-0 size-5 cursor-pointer"
       data-name="eye"
       onClick={onClick}
     >
@@ -177,26 +177,26 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
         <Frame8 />
         <Frame4 />
 
-        <div className="content-stretch flex flex-col gap-[18px] items-start relative shrink-0 w-[380px]">
+        <div className="content-stretch flex flex-col gap-5 items-start relative shrink-0 w-[380px]">
           {/* Email/Phone Field */}
-          <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
+          <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full pl-[150px]">
             <p className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px] w-full">
               Email / Phone Number
             </p>
-            <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
+            <div className="h-[42px] relative rounded-[10px] shrink-0 w-full ">
               <div
                 aria-hidden="true"
                 className={`absolute border ${
                   errors.email ? "border-red-500" : "border-[#dadada]"
-                } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                } border-solid inset-0 pointer-events-none rounded-[10px] `}
               />
-              <div className="flex flex-row items-center size-full">
+              <div className="flex flex-row items-center size-full pl-5">
                 <input
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email or phone number"
-                  className="box-border content-stretch flex gap-[10px] h-[42px] items-center px-[20px] py-[8px] relative w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0]"
+                  className="box-border content-stretch flex gap-2.5 h-[42px] items-center py-2 relative w-full font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0]"
                 />
               </div>
             </div>
@@ -208,26 +208,26 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           </div>
 
           {/* Password Field */}
-          <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full">
+          <div className="content-stretch flex flex-col gap-[11px] items-start relative shrink-0 w-full pl-[150px]">
             <p className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic relative shrink-0 text-[#1e1e1e] text-[14px] w-full">
               Password
             </p>
             <div className="h-[42px] relative rounded-[10px] shrink-0 w-full">
               <div
                 aria-hidden="true"
-                className={`absolute border ${
-                  errors.password ? "border-red-500" : "border-[#dadada]"
-                } border-solid inset-0 pointer-events-none rounded-[10px]`}
+                className={`absolute border  ${
+                  errors.password ? "border-red-500" : "border-[#dadada] pl-5"
+                } border-solid inset-0 pointer-events-none rounded-[10px] pl-5`}
               />
-              <div className="flex flex-row items-center size-full">
+              <div className="flex flex-row items-center size-full ">
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  className="box-border content-stretch flex gap-[10px] h-[42px] items-center px-[20px] py-[8px] relative w-[calc(100%-40px)] font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0]"
+                  className="box-border content-stretch flex gap-2.5 h-[42px] items-center px-5 py-2 relative w-[calc(100%-40px)] font-['Poppins:Regular',sans-serif] font-normal leading-[25px] not-italic text-[#1e1e1e] text-[14px] bg-transparent border-none outline-none placeholder:text-[#b0b0b0]"
                 />
-                <div className="pr-[20px]">
+                <div className="pr-10 pl-10">
                   <Eye
                     showPassword={showPassword}
                     onClick={() => setShowPassword(!showPassword)}
@@ -245,27 +245,20 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
         <button
           type="button"
-          className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] min-w-full not-italic relative shrink-0 text-[#9dc183] text-[14px] w-[min-content] text-left cursor-pointer bg-transparent border-none"
+          className="font-['Poppins:Regular',sans-serif] font-normal leading-[25px] min-w-full not-italic relative shrink-0 text-[#9dc183] text-[14px] w-min text-left cursor-pointer bg-transparent border-none pl-[150px]"
         >
           Forgot password?
         </button>
 
         <button
           type="submit"
-          className="bg-[#9dc183] box-border content-stretch flex gap-[10px] h-[48px] items-center justify-center px-[120px] py-[6px] relative rounded-[25px] shrink-0 w-[377px] border-none cursor-pointer"
+          className="bg-[#9dc183] box-border content-stretch flex h-12 items-center justify-center relative rounded-[25px] shrink-0 w-[377px] border-none cursor-pointer ml-37"
         >
           <p className="font-['Poppins:Semi_Bold',sans-serif] font-semibold leading-[30px] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white whitespace-pre">
             Log in
           </p>
         </button>
       </form>
-
-      <p className="absolute font-['Poppins:Regular',sans-serif] font-normal leading-[normal] left-[50px] not-italic text-[#9dc183] text-[14px] text-nowrap top-[705px] whitespace-pre">
-        <span className="text-[#b0b0b0]">Don't have an account?</span>{" "}
-        <span className="font-['Poppins:Bold',sans-serif] font-bold cursor-pointer">
-          Create one
-        </span>
-      </p>
     </div>
   );
 }
